@@ -39,7 +39,9 @@
 </head>
 <body class="bg-batik-light text-zinc-800 font-sans antialiased flex h-screen overflow-hidden">
 
-    <aside class="w-64 bg-batik-dark text-zinc-300 flex-col hidden md:flex shrink-0">
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden transition-opacity duration-300 opacity-0"></div>
+
+    <aside id="sidebar" class="w-64 bg-batik-dark text-zinc-300 flex-col flex shrink-0 fixed inset-y-0 left-0 z-50 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out h-screen">
         <div class="h-20 flex items-center px-8 border-b border-zinc-800">
             <img src="assets/img/logo.png" alt="Wastra Vision Logo" class="h-10 w-auto object-contain">
         </div>
@@ -83,7 +85,7 @@
         
         <header class="h-20 bg-white/80 backdrop-blur-md border-b border-zinc-200 flex items-center justify-between px-6 sm:px-10 shrink-0 z-10">
             <div class="flex items-center gap-4 md:hidden">
-                <button class="text-zinc-600 hover:text-batik-brown transition text-xl">
+                <button id="mobile-menu-btn" class="text-zinc-600 hover:text-batik-brown transition text-xl">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <span class="text-batik-dark text-lg font-serif font-bold">Wastra<span class="italic text-batik-brown">Vision</span></span>
@@ -305,5 +307,27 @@
         </main>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+
+            const openSidebar = () => {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+            };
+
+            const closeSidebar = () => {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('opacity-0');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            };
+
+            mobileBtn.addEventListener('click', openSidebar);
+            backdrop.addEventListener('click', closeSidebar);
+        });
+    </script>
 </body>
 </html>
