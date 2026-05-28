@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - WastraVision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        batik: {
+                            dark: '#0a0a0a',
+                            brown: '#6e442c',
+                            light: '#faf9f6',
+                            accent: '#d4af37',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-batik-light text-zinc-800 font-sans antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-batik-dark text-zinc-300 flex-col hidden md:flex shrink-0">
+        <div class="h-20 flex items-center px-8 border-b border-zinc-800">
+            <img src="assets/img/logo.png" alt="Wastra Vision Logo" class="h-10 w-auto object-contain">
+        </div>
+        
+        <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto scrollbar-hide">
+            <a href="#" class="flex items-center gap-4 px-4 py-3 bg-batik-brown text-white rounded-xl transition shadow-md">
+                <i class="fa-solid fa-border-all w-5"></i>
+                <span class="font-medium text-[15px]">Beranda</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 hover:bg-zinc-800 hover:text-white rounded-xl transition">
+                <i class="fa-solid fa-swatchbook w-5"></i>
+                <span class="font-medium text-[15px]">Koleksi Wastra</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 hover:bg-zinc-800 hover:text-white rounded-xl transition">
+                <i class="fa-solid fa-microscope w-5"></i>
+                <span class="font-medium text-[15px]">Riwayat AI</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 hover:bg-zinc-800 hover:text-white rounded-xl transition">
+                <i class="fa-solid fa-book-open w-5"></i>
+                <span class="font-medium text-[15px]">Jurnal & Edukasi</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 hover:bg-zinc-800 hover:text-white rounded-xl transition">
+                <i class="fa-solid fa-store w-5"></i>
+                <span class="font-medium text-[15px]">Marketplace</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-zinc-800">
+            <a href="#" class="flex items-center gap-4 px-4 py-3 hover:bg-zinc-800 hover:text-white rounded-xl transition">
+                <i class="fa-solid fa-gear w-5"></i>
+                <span class="font-medium text-[15px]">Pengaturan</span>
+            </a>
+            <a href="index.html" class="flex items-center gap-4 px-4 py-3 hover:bg-red-900/50 hover:text-red-400 rounded-xl transition mt-1 text-zinc-400">
+                <i class="fa-solid fa-arrow-right-from-bracket w-5"></i>
+                <span class="font-medium text-[15px]">Keluar</span>
+            </a>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+        
+        <header class="h-20 bg-white/80 backdrop-blur-md border-b border-zinc-200 flex items-center justify-between px-6 sm:px-10 shrink-0 z-10">
+            <div class="flex items-center gap-4 md:hidden">
+                <button class="text-zinc-600 hover:text-batik-brown transition text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <span class="text-batik-dark text-lg font-serif font-bold">Wastra<span class="italic text-batik-brown">Vision</span></span>
+            </div>
+
+            <div class="hidden md:flex items-center bg-zinc-100 rounded-full px-4 py-2.5 w-96 border border-zinc-200 focus-within:border-batik-brown focus-within:bg-white transition-all">
+                <i class="fa-solid fa-magnifying-glass text-zinc-400"></i>
+                <input type="text" placeholder="Cari motif batik, sejarah, atau jurnal..." class="bg-transparent border-none outline-none w-full ml-3 text-sm text-zinc-700 placeholder-zinc-400">
+            </div>
+
+            <div class="flex items-center gap-5 sm:gap-6">
+                <button class="relative text-zinc-500 hover:text-batik-brown transition">
+                    <i class="fa-regular fa-bell text-[20px]"></i>
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+                <div class="w-px h-8 bg-zinc-200 hidden sm:block"></div>
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <img src="https://ui-avatars.com/api/?name=Pengrajin+Batik&background=6e442c&color=fff" alt="Profile" class="w-10 h-10 rounded-full object-cover shadow-sm group-hover:ring-2 ring-batik-brown transition">
+                    <div class="hidden sm:block text-left">
+                        <p class="text-[13px] font-semibold text-zinc-800 leading-tight">Baskara Cipta</p>
+                        <p class="text-[11px] text-zinc-500 font-medium">Kolektor Aktif</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-zinc-400 hidden sm:block group-hover:text-batik-brown transition"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6 sm:p-10 scrollbar-hide">
+            
+            <div class="w-full bg-[#1f1612] rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden mb-10 shadow-xl flex flex-col justify-center min-h-[260px]">
+                <img src="assets/img/dashboard_welcome.png" alt="Ornamen Batik" class="absolute right-0 top-0 w-full sm:w-1/2 md:w-2/3 h-full object-cover z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1f1612] via-[#1f1612]/90 to-transparent z-10"></div>
+                <div class="relative z-20 max-w-2xl">
+                    <span class="inline-block px-3 py-1 bg-[#6e442c]/30 border border-[#6e442c]/50 rounded-full text-batik-accent text-[12px] font-medium tracking-wide mb-4">Level: Pelestari Wastra</span>
+                    <h1 class="text-3xl sm:text-4xl font-serif font-bold leading-tight mb-3">Selamat datang kembali, <br><span class="italic font-medium text-batik-accent">Baskara.</span></h1>
+                    <p class="text-zinc-300 text-[14px] sm:text-[15px] leading-relaxed max-w-lg">Lanjutkan eksplorasi Anda hari ini. Ada 3 kain baru yang menunggu untuk diverifikasi asal-usul dan keasliannya.</p>
+                    <button class="mt-6 bg-white text-batik-dark hover:bg-zinc-100 text-[14px] font-semibold px-6 py-2.5 rounded-xl transition duration-300 shadow-lg">
+                        Identifikasi Kain Baru
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 flex flex-col gap-4 group hover:border-batik-brown transition-colors">
+                    <div class="w-12 h-12 bg-batik-light rounded-full flex items-center justify-center text-batik-brown group-hover:bg-batik-brown group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-microscope text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-zinc-500 text-[13px] font-medium mb-1">Total Identifikasi</p>
+                        <p class="text-2xl font-bold text-zinc-800">142 <span class="text-[12px] font-normal text-emerald-500 ml-1">+12 bulan ini</span></p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 flex flex-col gap-4 group hover:border-batik-brown transition-colors">
+                    <div class="w-12 h-12 bg-batik-light rounded-full flex items-center justify-center text-batik-brown group-hover:bg-batik-brown group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-swatchbook text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-zinc-500 text-[13px] font-medium mb-1">Koleksi Tersimpan</p>
+                        <p class="text-2xl font-bold text-zinc-800">38 <span class="text-[12px] font-normal text-zinc-400 ml-1">Kain</span></p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 flex flex-col gap-4 group hover:border-batik-brown transition-colors">
+                    <div class="w-12 h-12 bg-batik-light rounded-full flex items-center justify-center text-batik-brown group-hover:bg-batik-brown group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-award text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-zinc-500 text-[13px] font-medium mb-1">Poin Kontribusi</p>
+                        <p class="text-2xl font-bold text-zinc-800">2,450 <span class="text-[12px] font-normal text-emerald-500 ml-1">Top 5%</span></p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 flex flex-col gap-4 group hover:border-batik-brown transition-colors">
+                    <div class="w-12 h-12 bg-batik-light rounded-full flex items-center justify-center text-batik-brown group-hover:bg-batik-brown group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-store text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-zinc-500 text-[13px] font-medium mb-1">Transaksi Aktif</p>
+                        <p class="text-2xl font-bold text-zinc-800">3 <span class="text-[12px] font-normal text-zinc-400 ml-1">Pesanan</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                
+                <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-zinc-100 overflow-hidden">
+                    <div class="p-6 border-b border-zinc-100 flex items-center justify-between">
+                        <h3 class="text-lg font-serif font-bold text-zinc-800">Riwayat Identifikasi AI</h3>
+                        <a href="#" class="text-[13px] font-medium text-batik-brown hover:underline">Lihat Semua</a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-batik-light/50 text-[12px] uppercase tracking-wider text-zinc-500 border-b border-zinc-100">
+                                    <th class="py-4 px-6 font-semibold">Motif / Asal</th>
+                                    <th class="py-4 px-6 font-semibold">Tanggal</th>
+                                    <th class="py-4 px-6 font-semibold">Akurasi</th>
+                                    <th class="py-4 px-6 font-semibold">Status Keaslian</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-[14px] text-zinc-700">
+                                <tr class="border-b border-zinc-50 hover:bg-zinc-50/50 transition">
+                                    <td class="py-4 px-6">
+                                        <p class="font-semibold text-zinc-800">Megamendung</p>
+                                        <p class="text-[12px] text-zinc-400">Cirebon, Jawa Barat</p>
+                                    </td>
+                                    <td class="py-4 px-6 text-zinc-500">24 Okt 2023</td>
+                                    <td class="py-4 px-6">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-full bg-zinc-200 rounded-full h-1.5 max-w-[60px]">
+                                                <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 98%"></div>
+                                            </div>
+                                            <span class="text-[12px] font-medium text-zinc-600">98%</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">
+                                            <i class="fa-solid fa-check-circle text-[10px]"></i> Terverifikasi
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-zinc-50 hover:bg-zinc-50/50 transition">
+                                    <td class="py-4 px-6">
+                                        <p class="font-semibold text-zinc-800">Parang Rusak</p>
+                                        <p class="text-[12px] text-zinc-400">Surakarta, Jawa Tengah</p>
+                                    </td>
+                                    <td class="py-4 px-6 text-zinc-500">21 Okt 2023</td>
+                                    <td class="py-4 px-6">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-full bg-zinc-200 rounded-full h-1.5 max-w-[60px]">
+                                                <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 94%"></div>
+                                            </div>
+                                            <span class="text-[12px] font-medium text-zinc-600">94%</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">
+                                            <i class="fa-solid fa-check-circle text-[10px]"></i> Terverifikasi
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-zinc-50/50 transition">
+                                    <td class="py-4 px-6">
+                                        <p class="font-semibold text-zinc-800">Kawung</p>
+                                        <p class="text-[12px] text-zinc-400">Yogyakarta</p>
+                                    </td>
+                                    <td class="py-4 px-6 text-zinc-500">18 Okt 2023</td>
+                                    <td class="py-4 px-6">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-full bg-zinc-200 rounded-full h-1.5 max-w-[60px]">
+                                                <div class="bg-amber-400 h-1.5 rounded-full" style="width: 72%"></div>
+                                            </div>
+                                            <span class="text-[12px] font-medium text-zinc-600">72%</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-600 border border-amber-100">
+                                            <i class="fa-solid fa-triangle-exclamation text-[10px]"></i> Perlu Tinjauan
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-zinc-100 p-6 flex flex-col">
+                    <h3 class="text-lg font-serif font-bold text-zinc-800 mb-6">Aktivitas Komunitas</h3>
+                    <div class="flex-1 flex flex-col gap-6">
+                        
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-comment-dots"></i>
+                            </div>
+                            <div>
+                                <p class="text-[14px] text-zinc-800 leading-snug">Dr. Santoso membalas diskusi Anda di <span class="font-semibold text-batik-brown cursor-pointer">"Makna Filosofis Motif Truntum"</span>.</p>
+                                <p class="text-[12px] text-zinc-400 mt-1">2 jam yang lalu</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-file-arrow-up"></i>
+                            </div>
+                            <div>
+                                <p class="text-[14px] text-zinc-800 leading-snug">Jurnal pengamatan <span class="font-semibold text-batik-brown cursor-pointer">"Pewarnaan Alami Soga"</span> telah disetujui kurator.</p>
+                                <p class="text-[12px] text-zinc-400 mt-1">Kemarin, 14:20</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </div>
+                            <div>
+                                <p class="text-[14px] text-zinc-800 leading-snug">UMKM Batik Lestari mengkonfirmasi pesanan <span class="font-semibold text-batik-brown cursor-pointer">Kain Tulis Lasem</span> Anda.</p>
+                                <p class="text-[12px] text-zinc-400 mt-1">2 hari yang lalu</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full mt-6 py-2.5 rounded-xl border border-zinc-200 text-[13px] font-semibold text-zinc-600 hover:bg-zinc-50 transition">
+                        Lihat Semua Notifikasi
+                    </button>
+                </div>
+
+            </div>
+            
+            <footer class="mt-12 pt-6 border-t border-zinc-200 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4 text-[13px] text-zinc-500 pb-4">
+                <p>&copy; 2026 WastraVision. Hak Cipta Dilindungi.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-batik-brown transition">Kebijakan Privasi</a>
+                    <a href="#" class="hover:text-batik-brown transition">Syarat & Ketentuan</a>
+                    <a href="#" class="hover:text-batik-brown transition">Bantuan</a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>
