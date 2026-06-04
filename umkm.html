@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMKM Center - Wastra Vision</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            brand: {
+              brown: '#6e442c',
+              dark: '#0a0a0a',
+              gold: '#d4a373'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0a0a0a;
+    }
+  </style>
+</head>
+
+<body class="text-white overflow-x-hidden bg-[#0a0a0a] w-full min-h-screen antialiased font-sans flex flex-col">
+
+  <!-- HERO SECTION FULL SCREEN -->
+  <div class="relative w-full h-screen flex flex-col shrink-0">
+    
+    <!-- HEADER -->
+    <header class="absolute top-0 left-0 w-full bg-gradient-to-b from-[#0a0a0a]/80 to-transparent px-6 sm:px-10 py-5 flex items-center justify-between shrink-0 z-50">
+      <div class="flex items-center gap-3 w-1/2 md:w-1/4">
+        <img src="assets/img/logo.png" alt="Wastra Vision Logo" class="h-8 sm:h-10 w-auto object-contain">
+      </div>
+
+      <nav class="hidden md:flex flex-1 justify-center items-center gap-6 lg:gap-10 text-[14px] text-gray-300 font-medium">
+        <a href="index.html" class="hover:text-white transition whitespace-nowrap">Wastra Scanner</a>
+        <a href="ensiklopedia.html" class="hover:text-white transition whitespace-nowrap">Ensiklopedia</a>
+        <a href="marketplace.html" class="hover:text-white transition whitespace-nowrap">Marketplace</a>
+        <!-- Status Aktif pada UMKM Center -->
+        <a href="umkm.html" class="text-brand-gold hover:text-white transition whitespace-nowrap">UMKM Center</a>
+      </nav>
+
+      <div class="flex items-center justify-end gap-2 sm:gap-4 w-1/2 md:w-1/4">
+        <a href="register.html" class="border border-gray-400 hover:border-white text-white text-[12px] sm:text-[14px] px-4 sm:px-8 py-2 rounded-lg transition font-medium whitespace-nowrap">Sign-Up</a>
+        <a href="login.html" class="bg-brand-brown hover:bg-[#5a3622] text-white text-[12px] sm:text-[14px] px-5 sm:px-10 py-2 rounded-lg transition font-medium whitespace-nowrap">Login</a>
+      </div>
+    </header>
+
+    <!-- MAIN HERO CONTENT -->
+    <main class="relative w-full flex-1 flex flex-col justify-end px-6 sm:px-10 md:px-12 pb-[8%] md:pb-[6%] z-10">
+      
+      <!-- Latar Belakang Gambar & Gradien -->
+      <div class="absolute inset-0 z-0">
+        <!-- Pastikan Anda mengubah path src ini dengan gambar pengrajin batik yang sesuai -->
+        <img src="assets/img/welcome_umkm.png" class="w-full h-full object-cover object-center" alt="Pengrajin Batik">
+        
+        <!-- Lapisan Gradien untuk memberikan efek transisi gelap di bagian bawah agar teks terbaca -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+      </div>
+
+      <!-- Konten Teks dan Card Statistik -->
+      <div class="relative z-10 w-full flex flex-col md:flex-row items-end justify-between gap-10 md:gap-8">
+        
+        <!-- Sisi Kiri: Judul -->
+        <div class="w-full md:w-[50%]">
+          <h1 class="text-[36px] sm:text-[48px] lg:text-[64px] font-medium leading-[1.1] tracking-tight text-[#f5f5f5]">
+            Mengenal Para <br>
+            Penjaga <span class="font-serif italic font-bold">Warisan</span> <br>
+            <span class="font-serif italic font-bold">Nusantara.</span>
+          </h1>
+        </div>
+
+        <!-- Sisi Kanan: Deskripsi & Statistik -->
+        <div class="w-full md:w-[45%] flex flex-col gap-8 pb-2">
+          <p class="text-[15px] sm:text-[16px] text-gray-200 leading-[1.6] font-medium w-full lg:w-[90%]">
+            Di balik setiap helai kain, ada dedikasi, doa, dan ribuan titik malam yang dititipkan oleh tangan terampil pengrajin lokal.
+          </p>
+          
+          <!-- Box Statistik -->
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            
+            <!-- Statistik 1 -->
+            <div class="flex-1 bg-gradient-to-br from-[#a57451] to-[#5a3622] rounded-xl p-5 sm:p-6 flex items-center gap-4 shadow-lg">
+              <h3 class="text-[32px] sm:text-[40px] font-medium text-white leading-none">500+</h3>
+              <div class="flex flex-col">
+                <span class="text-[13px] sm:text-[14px] text-white/90 leading-tight">UMKM</span>
+                <span class="text-[13px] sm:text-[14px] text-white/90 leading-tight">Tergabung</span>
+              </div>
+            </div>
+            
+            <!-- Statistik 2 -->
+            <div class="flex-1 bg-gradient-to-br from-[#a57451] to-[#5a3622] rounded-xl p-5 sm:p-6 flex items-center gap-4 shadow-lg">
+              <h3 class="text-[32px] sm:text-[40px] font-medium text-white leading-none">25</h3>
+              <div class="flex flex-col">
+                <span class="text-[13px] sm:text-[14px] text-white/90 leading-tight">Desa Batik</span>
+                <span class="text-[13px] sm:text-[14px] text-white/90 leading-tight">Terberdayakan</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+      <!-- SECTION ARTISAN SPOTLIGHT -->
+  <section class="w-full px-6 sm:px-10 md:px-20 py-16 md:py-24 bg-[#0a0a0a] flex flex-col md:flex-row items-center gap-10 md:gap-16">
+    <!-- Gambar Artisan -->
+    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+      <img src="assets/img/artisan.png" 
+           alt="Ibu Sumirah" 
+           class="w-full max-w-[450px] aspect-square object-cover rounded-2xl shadow-lg brightness-95">
+    </div>
+
+    <!-- Teks Artisan -->
+    <div class="w-full md:w-1/2 flex flex-col items-start">
+      <h2 class="text-[36px] sm:text-[48px] text-white leading-tight">
+        <span class="font-serif italic font-bold">Artisan</span> <span class="font-medium">Spotlight.</span>
+      </h2>
+
+      <h3 class="text-[18px] sm:text-[20px] font-medium text-white mt-6">
+        Batik Tulis Sekar Arum - Ibu Sumirah
+      </h3>
+
+      <p class="text-[14px] sm:text-[15px] text-[#b3b3b3] leading-[1.6] mt-4 w-full md:w-[85%]">
+        Wastravision menjembatani Anda langsung dengan UMKM Batik terverifikasi. Kami memastikan setiap transaksi mendukung keberlanjutan ekonomi pengrajin lokal tanpa perantara.
+      </p>
+
+      <p class="text-[14px] sm:text-[15px] text-white mt-6 font-normal">
+        Spesialis: Batik Tulis Canting Nol
+      </p>
+
+      <button class="mt-8 bg-[#6e442c] hover:bg-[#5a3622] text-[#f5f5f5] text-[13px] sm:text-[14px] font-medium px-8 py-3.5 rounded-xl transition duration-300 text-center">
+        Lihat Kisah Lengkap Ibu Sumirah
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION PARA PENGRAJIN -->
+  <section class="w-full px-6 sm:px-10 md:px-20 py-12 md:py-20 bg-[#0a0a0a]">
+    <h2 class="text-[36px] sm:text-[48px] text-white leading-tight mb-10 md:mb-12">
+      <span class="font-medium">Para</span> <span class="font-serif italic font-bold">Pengrajin.</span>
+    </h2>
+
+    <!-- Grid Kotak Pengrajin (12 Item) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+      <div class="bg-[#d9d9d9] aspect-square rounded-2xl"></div>
+    </div>
+  </section>
+
+  <!-- SECTION BEHIND THE CANVAS -->
+  <section class="w-full px-6 sm:px-10 md:px-20 py-16 md:py-24 bg-[#0a0a0a]">
+    
+    <!-- Header Section -->
+    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 md:gap-16 mb-12 md:mb-16">
+      <h2 class="text-[36px] sm:text-[48px] text-white leading-tight w-full md:w-1/2">
+        <span class="font-medium">Behind</span> <span class="font-serif italic font-bold">The Canvas.</span>
+      </h2>
+      <p class="text-[14px] sm:text-[15px] text-[#b3b3b3] leading-[1.6] w-full md:w-1/2 pt-2 md:pt-4">
+        Wastravision menjembatani Anda langsung dengan UMKM Batik terverifikasi. Kami memastikan setiap transaksi
+      </p>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="flex flex-col gap-6">
+      
+      <!-- Card 1: Nyanting -->
+      <div class="relative w-full h-[320px] sm:h-[280px] rounded-2xl overflow-hidden group">
+        <img src="assets/img/nyanting.png" alt="Nyanting" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#4d2f1d]/95 via-[#4d2f1d]/80 sm:via-[#4d2f1d]/90 to-transparent sm:to-transparent/20 w-full md:w-[70%]"></div>
+        
+        <!-- Content -->
+        <div class="absolute inset-y-0 left-0 flex flex-col justify-center px-8 sm:px-12 w-full sm:w-[55%] md:w-[45%] z-10">
+          <h3 class="text-[56px] sm:text-[64px] font-serif text-white leading-none">1</h3>
+          <h4 class="text-[28px] sm:text-[32px] font-serif italic text-white mt-1 mb-4">Nyanting</h4>
+          <p class="text-[13px] sm:text-[14px] text-white/90 leading-relaxed font-medium">
+            Proses menorehkan cairan malam panas secara manual menggunakan canting di atas kain putih. Setiap goresan lilin berfungsi sebagai pelindung untuk mempertahankan motif asli kain dari sapuan warna.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Nyolet -->
+      <div class="relative w-full h-[320px] sm:h-[280px] rounded-2xl overflow-hidden group">
+        <img src="assets/img/nyolet.png" alt="Nyolet" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#4d2f1d]/95 via-[#4d2f1d]/80 sm:via-[#4d2f1d]/90 to-transparent sm:to-transparent/20 w-full md:w-[70%]"></div>
+        
+        <!-- Content -->
+        <div class="absolute inset-y-0 left-0 flex flex-col justify-center px-8 sm:px-12 w-full sm:w-[55%] md:w-[45%] z-10">
+          <h3 class="text-[56px] sm:text-[64px] font-serif text-white leading-none">2</h3>
+          <h4 class="text-[28px] sm:text-[32px] font-serif italic text-white mt-1 mb-4">Nyolet</h4>
+          <p class="text-[13px] sm:text-[14px] text-white/90 leading-relaxed font-medium">
+            Teknik mewarnai detail motif secara selektif menggunakan kuas kecil, layaknya melukis di atas kanvas. Tahap ini menuntut kepekaan estetika tinggi untuk menghidupkan harmoni warna pada setiap ornamen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Nglorot -->
+      <div class="relative w-full h-[320px] sm:h-[280px] rounded-2xl overflow-hidden group">
+        <img src="assets/img/cuci.png" alt="Nglorot" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#4d2f1d]/95 via-[#4d2f1d]/80 sm:via-[#4d2f1d]/90 to-transparent sm:to-transparent/20 w-full md:w-[70%]"></div>
+        
+        <!-- Content -->
+        <div class="absolute inset-y-0 left-0 flex flex-col justify-center px-8 sm:px-12 w-full sm:w-[55%] md:w-[45%] z-10">
+          <h3 class="text-[56px] sm:text-[64px] font-serif text-white leading-none">3</h3>
+          <h4 class="text-[28px] sm:text-[32px] font-serif italic text-white mt-1 mb-4">Nglorot</h4>
+          <p class="text-[13px] sm:text-[14px] text-white/90 leading-relaxed font-medium">
+            Proses meluruhkan seluruh lapisan lilin malam dengan cara mencelupkan kain ke dalam air mendidih. Tahap magis ini seketika menyingkap keindahan motif dan warna asli yang sebelumnya tersembunyi.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4: Menjemur -->
+      <div class="relative w-full h-[320px] sm:h-[280px] rounded-2xl overflow-hidden group">
+        <img src="assets/img/jemur.png" alt="Menjemur" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#4d2f1d]/95 via-[#4d2f1d]/80 sm:via-[#4d2f1d]/90 to-transparent sm:to-transparent/20 w-full md:w-[70%]"></div>
+        
+        <!-- Content -->
+        <div class="absolute inset-y-0 left-0 flex flex-col justify-center px-8 sm:px-12 w-full sm:w-[55%] md:w-[45%] z-10">
+          <h3 class="text-[56px] sm:text-[64px] font-serif text-white leading-none">4</h3>
+          <h4 class="text-[28px] sm:text-[32px] font-serif italic text-white mt-1 mb-4">Menjemur</h4>
+          <p class="text-[13px] sm:text-[14px] text-white/90 leading-relaxed font-medium">
+            Tahap akhir di mana kain batik diangin-anginkan di tempat yang teduh tanpa paparan matahari langsung. Cara tradisional ini menjaga keaslian pigmen warna dan serat kain agar tetap awet dan berkilau.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="w-full px-6 sm:px-10 md:px-20 py-16 md:py-32 bg-[#0a0a0a] flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
+    
+    <div class="w-full md:w-1/2 flex flex-col items-start gap-8 sm:gap-10">
+      <h2 class="text-[36px] sm:text-[44px] lg:text-[48px] text-white leading-[1.15]">
+        <span class="font-medium">Ingin Produk Anda<br>Terverifikasi</span> <span class="font-serif italic font-bold">AI Wastra<br>Vision?</span>
+      </h2>
+
+      <div class="flex flex-col gap-5 sm:gap-6 w-full mt-2">
+        <div class="flex items-center gap-5">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#d9d9d9] shrink-0 rounded-sm"></div>
+          <p class="text-[15px] sm:text-[16px] text-[#e5e5e5] font-medium">Akses Pasar Global</p>
+        </div>
+        
+        <div class="flex items-center gap-5">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#d9d9d9] shrink-0 rounded-sm"></div>
+          <p class="text-[15px] sm:text-[16px] text-[#e5e5e5] font-medium">Sertifikasi Keaslian Digital</p>
+        </div>
+        
+        <div class="flex items-center gap-5">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#d9d9d9] shrink-0 rounded-sm"></div>
+          <p class="text-[15px] sm:text-[16px] text-[#e5e5e5] font-medium">Analisis Tren Motif</p>
+        </div>
+      </div>
+
+      <button class="mt-4 bg-[#6e442c] hover:bg-[#5a3622] text-[#f5f5f5] text-[14px] sm:text-[15px] font-medium px-8 py-3.5 rounded-xl transition duration-300 text-center">
+        Daftar Sebagai Mitra UMKM
+      </button>
+    </div>
+
+    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+      <img src="assets/img/penjahit_tua.png" 
+           alt="Verifikasi Produk dengan AI" 
+           class="w-full max-w-[550px] aspect-square md:aspect-[4/3] lg:aspect-square object-cover rounded-2xl shadow-lg brightness-95">
+    </div>
+  </section>
+
+  <footer class="w-full bg-[#0a0a0a] px-6 sm:px-10 md:px-20 pb-16 pt-10 md:pt-0">
+    <div class="w-full flex flex-col lg:flex-row justify-between items-stretch gap-12 lg:gap-16">
+      
+      <div class="flex flex-col justify-between min-h-[120px] lg:min-h-[180px] w-full lg:w-1/4">
+        <div class="flex items-center">
+          <img src="assets/img/logo.png" alt="Wastra Vision Logo" class="h-12 w-auto object-contain">
+        </div>
+        
+        <div class="flex items-center gap-5 text-zinc-400 text-[16px] mt-6 lg:mt-0">
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-10 w-full lg:pl-20">
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white text-[14px] font-medium tracking-wide">Layanan</h4>
+          <div class="flex flex-col gap-3 text-[13px] text-zinc-400 font-normal">
+            <a href="#" class="hover:text-white transition">Identifikasi</a>
+            <a href="#" class="hover:text-white transition">Ensiklopedia</a>
+            <a href="#" class="hover:text-white transition">Marketplace</a>
+            <a href="#" class="hover:text-white transition">Jurnal</a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white text-[14px] font-medium tracking-wide">Dukungan</h4>
+          <div class="flex flex-col gap-3 text-[13px] text-zinc-400 font-normal">
+            <a href="#" class="hover:text-white transition">Frequently Asked Question</a>
+            <a href="#" class="hover:text-white transition">Syarat & Ketentuan</a>
+            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 col-span-2 sm:col-span-1">
+          <h4 class="text-white text-[14px] font-medium tracking-wide">Hubungi Kami</h4>
+          <div class="flex flex-col gap-3 text-[13px] text-zinc-400 font-normal">
+            <a href="#" class="hover:text-white transition">Kontak</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+  </style>
+
+</body>
+</html>
