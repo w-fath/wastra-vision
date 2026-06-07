@@ -31,6 +31,13 @@
     body {
       background-color: #0a0a0a;
     }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
   </style>
 </head>
 
@@ -75,12 +82,12 @@
           Identifikasi setiap pola, pelajari filosofi terdalam, dan dukung pengrajin lokal melalui teknologi AI tercanggih.
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
-          <button class="bg-brand-brown hover:bg-[#5a3622] text-white text-[14px] font-medium px-10 py-3.5 rounded-xl transition text-center">
+          <button onclick="openScanModal()" class="bg-brand-brown hover:bg-[#5a3622] text-white text-[14px] font-medium px-10 py-3.5 rounded-xl transition text-center">
             Identifikasi Pola
           </button>
-          <button class="border border-gray-400 hover:border-white text-white text-[14px] font-medium px-10 py-3.5 rounded-xl transition bg-[#0a0a0a]/20 backdrop-blur-sm text-center">
+          <a href="ensiklopedia.html" class="border border-gray-400 hover:border-white text-white text-[14px] font-medium px-10 py-3.5 rounded-xl transition bg-[#0a0a0a]/20 backdrop-blur-sm flex items-center justify-center text-center">
             Jelajahi Ensiklopedia
-          </button>
+          </a>
         </div>
       </div>
     </main>
@@ -139,7 +146,7 @@
           <h3 class="text-[22px] sm:text-[28px] font-medium text-white w-full md:w-[300px] leading-tight">Pahami Kain Anda Secara Instan.</h3>
           <p class="text-[14px] sm:text-[15px] text-[#b3b3b3] w-full md:w-[450px] leading-[1.6]">Unggah foto atau gunakan kamera perangkat Anda untuk mendapatkan analisis detail mengenai identitas wastra Anda.</p>
         </div>
-        <button class="w-full md:w-auto bg-brand-brown hover:bg-[#5a3622] text-white text-[14px] font-medium px-10 py-3.5 rounded-xl transition whitespace-nowrap text-center">
+        <button onclick="openScanModal()" class="w-full md:w-auto bg-brand-brown hover:bg-[#5a3622] text-white text-[14px] font-medium px-10 py-3.5 rounded-xl transition whitespace-nowrap text-center">
           Identifikasi Pola
         </button>
       </div>
@@ -208,8 +215,8 @@
         </h2>
         
         <img src="assets/img/penjahit_tua.png" 
-             alt="Pengrajin Batik" 
-             class="w-full h-[240px] sm:h-[320px] object-cover rounded-2xl md:mt-auto shadow-lg brightness-90">
+            alt="Pengrajin Batik" 
+            class="w-full h-[240px] sm:h-[320px] object-cover rounded-2xl md:mt-auto shadow-lg brightness-90">
     </div>
 
     <div class="w-full md:w-1/2 flex flex-col justify-between gap-8">
@@ -305,7 +312,7 @@
   <section class="w-full bg-[#0a0a0a] relative mt-20 md:mt-40">
     <div class="absolute top-0 left-0 w-full h-[400px] sm:h-[550px] md:h-[650px] z-0">
       <img src="assets/img/footer.png" 
-           alt="Batik Close Up" class="w-full h-full object-cover object-center brightness-90">
+            alt="Batik Close Up" class="w-full h-full object-cover object-center brightness-90">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/60 to-[#0a0a0a]"></div>
     </div>
     
@@ -315,7 +322,7 @@
         Dekat <span class="font-serif italic font-bold">Warisan Anda?</span>
       </h2>
       
-      <button class="bg-[#6e442c] hover:bg-[#5a3622] text-[#f5f5f5] text-[15px] font-medium px-11 py-3.5 rounded-xl transition duration-300 shadow-lg tracking-wide">
+      <button onclick="openScanModal()" class="bg-[#6e442c] hover:bg-[#5a3622] text-[#f5f5f5] text-[15px] font-medium px-11 py-3.5 rounded-xl transition duration-300 shadow-lg tracking-wide">
         Identifikasi Sekarang
       </button>
     </div>
@@ -368,16 +375,97 @@
     </div>
   </footer>
 
-  <style>
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
+  <div id="scanModal" class="fixed inset-0 z-[100] hidden flex flex-col items-center justify-center">
+    <div class="absolute inset-0 bg-black/95" onclick="closeScanModal()"></div>
+    
+    <div id="scanDefaultState" class="relative w-full h-full flex flex-col justify-between p-6 z-10">
+        <div class="flex justify-end w-full">
+            <button onclick="closeScanModal()" class="text-white/80 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center gap-10">
+            <p class="text-center text-zinc-300 text-[14px] leading-relaxed max-w-sm px-6">
+                Posisikan kain batik di dalam bingkai untuk memindai motif atau pilih dari galeri.
+            </p>
+            
+            <div class="relative w-[70%] max-w-[300px] aspect-square">
+                <div class="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-white rounded-tl-sm"></div>
+                <div class="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-white rounded-tr-sm"></div>
+                <div class="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-white rounded-bl-sm"></div>
+                <div class="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-white rounded-br-sm"></div>
+                <div class="absolute inset-0 border border-white/20 bg-white/5 backdrop-blur-[1px]"></div>
+            </div>
+        </div>
+
+        <div class="w-full max-w-sm mx-auto mb-12 flex justify-around items-center">
+            <button class="w-20 h-20 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center hover:border-white transition group">
+                <i class="fa-solid fa-bolt text-zinc-500 text-3xl group-hover:text-white"></i>
+            </button>
+            
+            <label class="w-20 h-20 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center hover:border-white transition cursor-pointer group relative">
+                <i class="fa-solid fa-image text-zinc-500 text-3xl group-hover:text-white"></i>
+                <input type="file" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="startAnalysis()">
+            </label>
+        </div>
+    </div>
+
+    <div id="scanAnalyzingState" class="relative w-full h-full hidden flex-col items-center justify-center p-6 z-10">
+        <div class="relative w-24 h-24 mb-8">
+            <div class="absolute inset-0 border-4 border-[#6e442c]/30 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-[#d4a373] rounded-full border-t-transparent animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <!-- <i class="fa-solid fa-robot text-[#d4a373] text-2xl"></i> -->
+                <img src="assets/img/logo-remove.png" alt="logo" class="absolute w-10 h-10 object-contain">
+            </div>
+        </div>
+        
+        <h3 class="text-white text-xl sm:text-2xl font-serif italic mb-3">Menganalisis Pola...</h3>
+        <p class="text-zinc-400 text-sm text-center max-w-xs leading-relaxed">
+            AI Vision Studio sedang memproses serat dan lekuk isen-isen untuk mengidentifikasi wastra Anda.
+        </p>
+    </div>
+
+  </div>
+
+  <script>
+    // Fungsi untuk membuka modal
+    function openScanModal() {
+      // Pastikan modal selalu di-reset ke state awal saat dibuka
+      document.getElementById('scanDefaultState').classList.remove('hidden');
+      document.getElementById('scanDefaultState').classList.add('flex');
+      
+      document.getElementById('scanAnalyzingState').classList.add('hidden');
+      document.getElementById('scanAnalyzingState').classList.remove('flex');
+        
+      document.getElementById('scanModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; 
     }
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+    
+    // Fungsi untuk menutup modal
+    function closeScanModal() {
+      document.getElementById('scanModal').classList.add('hidden');
+      document.body.style.overflow = 'auto'; 
     }
-  </style>
+
+    // Fungsi transisi dan redirect saat gambar diunggah
+    function startAnalysis() {
+        // 1. Sembunyikan state default
+        document.getElementById('scanDefaultState').classList.add('hidden');
+        document.getElementById('scanDefaultState').classList.remove('flex');
+        
+        // 2. Tampilkan state loading / analisis
+        document.getElementById('scanAnalyzingState').classList.remove('hidden');
+        document.getElementById('scanAnalyzingState').classList.add('flex');
+
+        // 3. Set timer 5 detik (5000 ms), lalu pindah halaman
+        setTimeout(() => {
+            // Pastikan URL tujuan Anda sudah benar
+            window.location.href = 'hasil-scan.html'; 
+        }, 5000);
+    }
+  </script>
 
 </body>
-
 </html>
